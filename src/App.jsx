@@ -13,7 +13,7 @@ function App() {
     const getPaises = async () => {
       // Capturo los posibles errores con try/catch
       try {
-        const response = await axios.get('https://restcountriddes.eu/rest/v2/all?fields=name');
+        const response = await axios.get('https://restcountries.eu/rest/v2/all?fields=name');
         setPaises(response.data);
       } catch (err) {
         setError('Hubo un error al traer los paises');
