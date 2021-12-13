@@ -6,10 +6,16 @@ import styles from './App.module.scss';
 
 function App() {
   const [paises, setPaises] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [error, setError] = useState('');
   const { userId } = useParams();
   console.log(userId);
-  // Se inicializa el componente App
+
+  useEffect(async () => {
+    const response = await axios.get(`https://repechaje-backend.herokuapp.com/posts/${userId}`);
+    setPosts(response.data);
+  }, []);
+
   useEffect(() => {
     // Llamo al endpoint https://restcountries.eu/rest/v2/all?fields=name
     const getPaises = async () => {
@@ -26,6 +32,12 @@ function App() {
 
   return (
     <div className={styles.App}>
+      {posts.map((post) => (
+        <>
+          <p>{post.title}</p>
+          <p>{post.content}</p>
+        </>
+      ))}
       <header className={styles.AppHeader}>
         <img src={logo} className={styles.AppLogo} alt="logo" />
         <p>
