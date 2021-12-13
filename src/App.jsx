@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import logo from './logo.svg';
 import styles from './App.module.scss';
 
 function App() {
   const [paises, setPaises] = useState([]);
   const [error, setError] = useState('');
-
+  const { userId } = useParams();
+  console.log(userId);
   // Se inicializa el componente App
   useEffect(() => {
     // Llamo al endpoint https://restcountries.eu/rest/v2/all?fields=name

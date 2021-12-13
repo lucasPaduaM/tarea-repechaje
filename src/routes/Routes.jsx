@@ -10,7 +10,7 @@ const Routes = () => (
     <NavRouter path="/about">
       <About />
     </NavRouter>
-    <Route path="/">
+    <Route path="/:userId">
       <NavBar />
       <App />
     </Route>
