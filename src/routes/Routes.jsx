@@ -1,19 +1,27 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import App from '../App';
+import { Switch } from 'react-router-dom';
+import Perfil from '../components/Perfil';
 import NavBar from '../components/NavBar';
-import About from '../pages/About';
 import NavRouter from './NavRouter';
+import Home from '../components/Home';
+import Login from '../components/Login';
+import Posts from '../components/Posts';
 
 const Routes = () => (
   <Switch>
-    <NavRouter path="/about">
-      <About />
-    </NavRouter>
-    <Route path="/">
+    <NavRouter path="/home">
       <NavBar />
-      <App />
-    </Route>
+      <Home />
+    </NavRouter>
+    <NavRouter path="/login">
+      <Login />
+    </NavRouter>
+    <NavRouter path="/register">
+      <Perfil />
+    </NavRouter>
+    <NavRouter path="/posts">
+      <Posts />
+    </NavRouter>
   </Switch>
 );
 
