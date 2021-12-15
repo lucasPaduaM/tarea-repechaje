@@ -9,7 +9,7 @@ import Posts from '../components/Posts';
 
 const Routes = () => (
   <Switch>
-    <NavRouter path="/home">
+    <NavRouter path="/">
       <NavBar />
       <Home />
     </NavRouter>
