@@ -1,30 +1,52 @@
+/* eslint-disable */
 import axios from 'axios';
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post('http://localhost:5000/api/auth/login', {
-        username,
-        password,
-      });
-    } catch (error) {
-      console.log(error);
+    const handleEmail = (e) => {
+        setEmail(e.target.value);
     }
-  };
-  return (
-    <div className="login">
-      <form onSubmit={handleSubmit}>
-        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+
+    const handlePassword = (e) => {
+        setPassword(e.target.value);
+    }
+
+    function DoLogin() {
+        const userToLogin = {
+            email: email,
+            password: password
+        }
+        axios.post('https://repechaje-backend.herokuapp.com/auth', userToLogin)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+            }
+            )
+    }
+
+
+    return (
+        <div>
+            <h1>Login</h1>
+
+            <label>
+                Mail:
+                <input name="email" onChange={handleEmail} type="text" name="username" />
+            </label>
+            <br />
+            <label>
+                Contraseña:
+                <input name="password" onChange={handlePassword} type="password" name="password" />
+            </label>
+            <br />
+            <input type="submit" value="Submit" />
+            <button onClick={() => DoLogin(email, password)}>Login</button>
+        </div>
+    );
 };
 
 export default Login;

@@ -14,6 +14,7 @@ const Posts = () => {
 
   return (
     <div>
+      <h1>Posts</h1>
       {posts.map((post) => (
         <>
           <p>{post.title}</p>

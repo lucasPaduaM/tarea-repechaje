@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => (
-  <div>
+  <div className="navbar">
     <Link to="/home">Home</Link>
     <Link to="/register">Register</Link>
     <Link to="/login">Login</Link>

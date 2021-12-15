@@ -1,18 +1,13 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
-import Perfil from '../components/Perfil';
-import NavBar from '../components/NavBar';
+import Perfil from '../pages/Perfil';
 import NavRouter from './NavRouter';
-import Home from '../components/Home';
-import Login from '../components/Login';
-import Posts from '../components/Posts';
+import App from '../App';
+import Login from '../pages/Login';
+import Posts from '../pages/Posts';
 
 const Routes = () => (
   <Switch>
-    <NavRouter path="/">
-      <NavBar />
-      <Home />
-    </NavRouter>
     <NavRouter path="/login">
       <Login />
     </NavRouter>
@@ -21,6 +16,9 @@ const Routes = () => (
     </NavRouter>
     <NavRouter path="/posts">
       <Posts />
+    </NavRouter>
+    <NavRouter path="/">
+      <App />
     </NavRouter>
   </Switch>
 );

@@ -3,8 +3,8 @@ import React from "react";
 import axios from 'axios';
 
 const Perfil = () => {
-  const [name, setName] = React.useState('');
   const [password, setPassword] = React.useState('');
+  const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
 
   const handleNombre = (e) => {
@@ -25,9 +25,11 @@ const Perfil = () => {
       name,
       email,
     };
-    axios.post('https://repechaje-backend.herokuapp.com/users', {
-      user
-    });
+    axios.post('https://repechaje-backend.herokuapp.com/users', user)
+      .then(res => {
+        console.log(res);
+      }
+      )
   }
 
   return (
